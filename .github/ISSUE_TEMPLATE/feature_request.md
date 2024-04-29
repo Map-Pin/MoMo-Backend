@@ -1,20 +1,12 @@
----
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+## 설명
+<!-- 발생한 버그에 대한 간략한 설명을 작성해주세요. -->
 
----
+## 구현
+<!-- 버그를 재현하기 위한 순서를 단계별로 설명해주세요. -->
+1. '...'로 이동
+2. '....'를 클릭
+3. '....'까지 스크롤
+4. 버그 발생을 확인
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## 예상 동작
+<!-- 버그가 발생하지 않았다면 어떤 동작을 기대했는지 설명해주세요. -->
