@@ -3,4 +3,5 @@ include 'Api'
 include 'Common'
 include 'Search'
 include 'Auth'
+include 'Domain'
 

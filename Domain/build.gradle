@@ -9,14 +9,9 @@ repositories {
     mavenCentral()
 }
 
-bootJar { enabled = false }
-jar { enabled = true }
-
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation project(':Common')
-    implementation project(':Domain')
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
@@ -24,4 +19,3 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
