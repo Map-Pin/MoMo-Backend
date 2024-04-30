@@ -23,7 +23,13 @@ jobs: # 3
           summary: '${{ github.event.issue.title }}'
           description: '${{ github.event.issue.html_url }}'
 
+      - name: Checkout develop code
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
       - name: Create branch with Ticket number
+        uses: actions/checkout@v4
         run: |
           git checkout -b ${{ steps.create.outputs.issue }}
           git push origin ${{ steps.create.outputs.issue }}
