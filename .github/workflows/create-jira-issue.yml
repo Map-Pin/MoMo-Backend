@@ -22,3 +22,15 @@ jobs: # 3
           issuetype: Task
           summary: '${{ github.event.issue.title }}'
           description: '${{ github.event.issue.html_url }}'
+
+      - name: Create branch with Ticket number
+        run: |
+          git checkout -b ${{ steps.create.outputs.issue }}
+          git push origin ${{ steps.create.outputs.issue }}
+        
+      - name: Update issue title
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: "update-issue"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "${{ steps.create.outputs.issue }} ${{ github.event.issue.title }}"
