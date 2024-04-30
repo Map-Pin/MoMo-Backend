@@ -29,7 +29,7 @@ jobs: # 3
           ref: develop
 
       - name: Create branch with Ticket number
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
         run: |
           git checkout -b ${{ steps.create.outputs.issue }}
           git push origin ${{ steps.create.outputs.issue }}
