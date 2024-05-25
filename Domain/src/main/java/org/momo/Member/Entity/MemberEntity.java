@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 import org.momo.Base.Entity.BaseEntity;
+import org.momo.Department.MajorEntity;
 
 import java.time.LocalDate;
 
@@ -19,8 +21,10 @@ public class MemberEntity extends BaseEntity {
     @Id
     private Long memberId;
 
-    @Column(nullable = false)
-    private Long major;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "major_id")
+    private MajorEntity major;
+
     @Column(length = 15)
     private String name;
 
@@ -41,9 +45,14 @@ public class MemberEntity extends BaseEntity {
     @Column(length = 45)
     private String college;
 
+    @ColumnDefault("0")
     private Boolean emailVerified;
+
+    @ColumnDefault("0")
     private Boolean majorVerified;
+
     @Lob
     private Long profileImage;
+
     private Integer grade;
 }

@@ -12,13 +12,14 @@ import org.momo.Base.Entity.BaseEntity;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "majorvalidation")
+@Table(name = "major_validation")
 public class MajorValidationEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Integer memberId;
+
     @Lob
     private String image;
 }

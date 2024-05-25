@@ -17,8 +17,9 @@ public class MajorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long departmentId;
 
-    @Column(nullable = false)
-    private Long facultyId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "faculty_id")
+    private FacultyEntity faculty;
 
     @Column(length = 45)
     private String name;

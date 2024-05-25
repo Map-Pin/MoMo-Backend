@@ -22,7 +22,9 @@ public class ReportEntity extends BaseEntity {
     private String type;
 
     private Long reporterId;
+
     private Long subjectId;
+
     @Lob
     private String reportContent;
 }

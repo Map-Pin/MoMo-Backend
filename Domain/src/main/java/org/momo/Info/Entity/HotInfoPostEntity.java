@@ -6,21 +6,24 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.momo.Base.Entity.BaseEntity;
+import org.momo.Department.MajorEntity;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "hotinfopost")
+@Table(name = "hot_info_post")
 public class HotInfoPostEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long hotInfoId;
 
-    @Column(nullable = false)
-    private Long majorId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "major_id")
+    private MajorEntity major;
 
-    @Column(nullable = false)
-    private Long postId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private InfoPostEntity infoPost;
 }

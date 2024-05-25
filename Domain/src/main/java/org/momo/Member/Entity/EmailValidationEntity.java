@@ -12,7 +12,7 @@ import org.momo.Base.Entity.BaseEntity;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "emailvalidation")
+@Table(name = "email_validation")
 public class EmailValidationEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

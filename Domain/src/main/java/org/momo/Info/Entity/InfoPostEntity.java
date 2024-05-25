@@ -5,24 +5,29 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 import org.momo.Base.Entity.BaseEntity;
+import org.momo.Department.MajorEntity;
+import org.momo.Member.Entity.MemberEntity;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "infopost")
+@Table(name = "info_post")
 public class InfoPostEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
 
-    @Column(nullable = false)
-    private Long memberId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private MemberEntity member;
 
-    @Column(nullable = false)
-    private Long majorId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "major_id")
+    private MajorEntity major;
 
     @Column(length = 50)
     private String title;
@@ -30,6 +35,9 @@ public class InfoPostEntity extends BaseEntity {
     @Lob
     private String contents;
 
+    @ColumnDefault("0")
     private Integer likes;
+
+    @ColumnDefault("0")
     private Integer comments;
 }

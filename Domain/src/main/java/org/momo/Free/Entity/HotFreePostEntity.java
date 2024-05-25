@@ -9,12 +9,13 @@ import org.momo.Base.Entity.BaseEntity;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "hotfreepost")
+@Table(name = "hot_free_post")
 public class HotFreePostEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long topPostId;
 
-    @Column(nullable = false)
-    private Long postId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private FreePostEntity freePost;
 }
