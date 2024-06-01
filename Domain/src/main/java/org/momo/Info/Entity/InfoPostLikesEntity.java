@@ -1,17 +1,14 @@
 package org.momo.Info.Entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.momo.Base.Entity.BaseEntity;
 import org.momo.Member.Entity.MemberEntity;
 
 @Entity
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "info_post_likes")
 public class InfoPostLikesEntity extends BaseEntity {

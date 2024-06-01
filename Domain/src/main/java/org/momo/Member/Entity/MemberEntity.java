@@ -1,10 +1,7 @@
 package org.momo.Member.Entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.momo.Base.Entity.BaseEntity;
 import org.momo.Department.MajorEntity;
@@ -13,8 +10,8 @@ import java.time.LocalDate;
 
 @Entity
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "member")
 public class MemberEntity extends BaseEntity {

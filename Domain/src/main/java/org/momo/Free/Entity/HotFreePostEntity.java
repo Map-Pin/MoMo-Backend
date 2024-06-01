@@ -6,8 +6,8 @@ import org.momo.Base.Entity.BaseEntity;
 
 @Entity
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "hot_free_post")
 public class HotFreePostEntity extends BaseEntity {
