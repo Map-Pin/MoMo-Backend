@@ -2,9 +2,9 @@ package org.momo.Question.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import org.momo.Base.Entity.BaseEntity;
-import org.momo.Department.MajorEntity;
-import org.momo.Member.Entity.MemberEntity;
+import org.momo.Base.Entity.Base;
+import org.momo.Department.Department;
+import org.momo.Member.Entity.Member;
 
 @Entity
 @Getter
@@ -12,18 +12,18 @@ import org.momo.Member.Entity.MemberEntity;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "question_post")
-public class QuestionPostEntity extends BaseEntity {
+public class QuestionPost extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    private MemberEntity member;
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "major_id")
-    private MajorEntity major;
+    private Department major;
 
     @Column(length = 50)
     private String title;
