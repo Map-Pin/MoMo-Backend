@@ -1,25 +1,26 @@
-package org.momo.Member.Entity;
+package org.momo.Question.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.momo.Base.Entity.BaseEntity;
+import org.momo.Base.Entity.Base;
+import org.momo.Member.Entity.Member;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
-@Table(name = "block")
-public class BlockEntity extends BaseEntity {
+@Table(name = "questionpost_likes")
+public class QuestionPostLikes extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long blockId;
+    private Long likeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    private MemberEntity member;
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "blocked_id")
-    private MemberEntity blocked;
+    @JoinColumn(name = "post_id")
+    private QuestionPost questionPost;
 }

@@ -2,21 +2,22 @@ package org.momo.Member.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.momo.Base.Entity.BaseEntity;
+import org.momo.Base.Entity.Base;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
-@Table(name = "major_validation")
-public class MajorValidationEntity extends BaseEntity {
+@Table(name = "email_validation")
+public class EmailValidation extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer memberId;
+    @Column(length = 6)
+    private String code;
 
-    @Lob
-    private String image;
+    @Column(length = 15)
+    private String email;
 }

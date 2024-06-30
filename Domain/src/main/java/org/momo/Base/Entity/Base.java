@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @MappedSuperclass
 @Getter
 @EntityListeners(AuditingEntityListener.class)
-public abstract class BaseEntity {
+public abstract class Base {
     @CreatedDate
     private Timestamp createdAt;
     @LastModifiedDate

@@ -2,7 +2,7 @@ package org.momo.Free.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.momo.Base.Entity.BaseEntity;
+import org.momo.Base.Entity.Base;
 
 @Entity
 @Getter
@@ -10,12 +10,12 @@ import org.momo.Base.Entity.BaseEntity;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "hot_free_post")
-public class HotFreePostEntity extends BaseEntity {
+public class HotFreePost extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long topPostId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
-    private FreePostEntity freePost;
+    private FreePost freePost;
 }

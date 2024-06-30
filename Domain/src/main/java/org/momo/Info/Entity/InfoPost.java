@@ -1,25 +1,30 @@
-package org.momo.Free.Entity;
+package org.momo.Info.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import org.momo.Base.Entity.BaseEntity;
-import org.momo.Member.Entity.MemberEntity;
+import org.momo.Base.Entity.Base;
+import org.momo.Department.Department;
+import org.momo.Member.Entity.Member;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
-@Table(name = "free_post")
-public class FreePostEntity extends BaseEntity {
+@Table(name = "info_post")
+public class InfoPost extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    private MemberEntity member;
+    private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "major_id")
+    private Department major;
 
     @Column(length = 50)
     private String title;
