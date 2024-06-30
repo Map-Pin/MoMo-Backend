@@ -2,25 +2,25 @@ package org.momo.Info.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.momo.Base.Entity.BaseEntity;
-import org.momo.Department.MajorEntity;
+import org.momo.Base.Entity.Base;
+import org.momo.Member.Entity.Member;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
-@Table(name = "hot_info_post")
-public class HotInfoPostEntity extends BaseEntity {
+@Table(name = "info_comment_likes")
+public class InfoCommentLikes extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long hotInfoId;
+    private Long likeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "major_id")
-    private MajorEntity major;
+    @JoinColumn(name = "comment_id")
+    private InfoComment infoComment;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
-    private InfoPostEntity infoPost;
+    @JoinColumn(name = "member_id")
+    private Member member;
 }

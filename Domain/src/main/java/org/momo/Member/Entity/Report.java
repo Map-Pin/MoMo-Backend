@@ -2,7 +2,7 @@ package org.momo.Member.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.momo.Base.Entity.BaseEntity;
+import org.momo.Base.Entity.Base;
 
 @Entity
 @Getter
@@ -10,7 +10,7 @@ import org.momo.Base.Entity.BaseEntity;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "report")
-public class ReportEntity extends BaseEntity {
+public class Report extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reportId;

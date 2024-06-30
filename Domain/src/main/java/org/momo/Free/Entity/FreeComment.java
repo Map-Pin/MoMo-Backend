@@ -3,8 +3,8 @@ package org.momo.Free.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import org.momo.Base.Entity.BaseEntity;
-import org.momo.Member.Entity.MemberEntity;
+import org.momo.Base.Entity.Base;
+import org.momo.Member.Entity.Member;
 
 @Entity
 @Getter
@@ -12,22 +12,22 @@ import org.momo.Member.Entity.MemberEntity;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "free_comment")
-public class FreeCommentEntity extends BaseEntity {
+public class FreeComment extends Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
-    private FreeCommentEntity parent;
+    private FreeComment parent;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    private MemberEntity member;
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
-    private FreePostEntity freePost;
+    private FreePost freePost;
 
     @Lob
     private String contents;

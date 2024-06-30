@@ -3,8 +3,8 @@ package org.momo.Member.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import org.momo.Base.Entity.BaseEntity;
-import org.momo.Department.MajorEntity;
+import org.momo.Base.Entity.Base;
+import org.momo.Department.Department;
 
 import java.time.LocalDate;
 
@@ -14,13 +14,14 @@ import java.time.LocalDate;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "member")
-public class MemberEntity extends BaseEntity {
+public class Member extends Base {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "major_id")
-    private MajorEntity major;
+    private Department major;
 
     @Column(length = 15)
     private String name;
