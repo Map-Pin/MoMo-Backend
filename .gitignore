@@ -5,9 +5,7 @@ build/
 !**/src/main/**/build/
 !**/**/build/
 !**/src/test/**/build/
-*/Api/build
-*/Common/build
-*/Search/build
+**/build/
 
 ### STS ###
 .apt_generated
