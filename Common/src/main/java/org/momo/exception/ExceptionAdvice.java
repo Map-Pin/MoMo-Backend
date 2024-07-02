@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
@@ -22,7 +23,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
-@RestControllerAdvice(annotations = {RestControllerAdvice.class})
+@RestControllerAdvice(annotations = {RestController.class})
 public class ExceptionAdvice extends ResponseEntityExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<Object> validation(ConstraintViolationException e, WebRequest request) {
@@ -60,6 +61,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = GeneralException.class)
     public ResponseEntity onThrowException(GeneralException generalException, HttpServletRequest request) {
+        log.error("GeneralException 발생 : {}", generalException.getMessage());
         ErrorReasonDto errorReasonHttpStatus = generalException.getReasonHttpStatus();
         return handleExceptionInternal(generalException,errorReasonHttpStatus,null,request);
     }
