@@ -1,17 +1,20 @@
 plugins {
     id 'java'
+    id 'java-library'
 }
 
-group = 'org.momo'
-version = '0.0.1-SNAPSHOT'
+bootJar { enabled = false }
+jar { enabled = true }
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // Swagger
+    api group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.3'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.3'
+    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.3'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'java-library'
 }
 
 group = 'org.momo'
@@ -13,6 +14,8 @@ bootJar { enabled = false }
 jar { enabled = true }
 
 dependencies {
+    api project(':Common')
+    implementation project(':Domain')
     implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
