@@ -32,7 +32,7 @@ public class Member extends Base {
     @Column(length = 50)
     private String email;
 
-    @Column(length = 15)
+    @Column(length = 100)
     private String password;
 
     private LocalDate birth;
