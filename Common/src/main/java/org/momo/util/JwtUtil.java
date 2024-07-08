@@ -6,6 +6,7 @@ import io.jsonwebtoken.security.Keys;
 import org.momo.exception.handler.JwtExpiredHandler;
 import org.momo.exception.handler.JwtInvalidHandler;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -13,11 +14,12 @@ import java.util.Date;
 
 @Component
 public class JwtUtil implements InitializingBean {
+    @Value("${JWT_SECRET}")
+    private String secret;
     private static SecretKey secretKey;
     private static final Long expireMs = 1000L * 60; //30분
     @Override
     public void afterPropertiesSet() throws Exception {
-        String secret = "aaaaaaaaaaabbbbbbbbbccccccddddeeeeeeeefffffffggggggghhhhhhhhiiiijjjjjjjjkllllllllllllllllllllllll";
         byte[] keyBytes = Decoders.BASE64.decode(secret);
         secretKey = Keys.hmacShaKeyFor(keyBytes);
     }

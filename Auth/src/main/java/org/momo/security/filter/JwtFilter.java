@@ -44,6 +44,7 @@ public class JwtFilter extends OncePerRequestFilter {
             Authentication authentication = new UsernamePasswordAuthenticationToken(principalDetails, null, principalDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }catch (JwtExpiredHandler e){
+            response.setContentType("application/json");
             BaseResponseDto<Object> baseResponseDto = BaseResponseDto.onFailure(
                     ErrorStatus.JWT_ACCESS_TOKEN_EXPIRED.getCode(),
                     ErrorStatus.JWT_ACCESS_TOKEN_EXPIRED.getMessage(),
@@ -53,6 +54,7 @@ public class JwtFilter extends OncePerRequestFilter {
             objectMapper.writeValue(response.getOutputStream(),baseResponseDto);
             return;
         }catch (JwtInvalidHandler e){
+            response.setContentType("application/json");
             BaseResponseDto<Object> baseResponseDto = BaseResponseDto.onFailure(
                     ErrorStatus.JWT_TOKEN_INVALID.getCode(),
                     ErrorStatus.JWT_TOKEN_INVALID.getMessage(),
