@@ -18,6 +18,7 @@ public enum ErrorStatus implements BaseErrorCode {
 
     // 멤버 관련 에러
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, 401, "사용자가 없습니다."),
+    PASSWORD_NOT_MATCH(HttpStatus.UNAUTHORIZED, 401, "비밀번호가 일치하지 않습니다."),
     USER_NOT_EXISTS(HttpStatus.NOT_FOUND, 404, "존재하지 않는 사용자입니다."),
     NICKNAME_EXISTS(HttpStatus.CONFLICT, 409, "이미 존재하는 닉네임입니다."),
 

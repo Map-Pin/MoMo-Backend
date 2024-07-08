@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 group = 'org.momo'
@@ -11,9 +11,10 @@ repositories {
 
 dependencies {
     implementation project(':Common')
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    api 'org.springframework.boot:spring-boot-starter-data-jpa'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
 test {
